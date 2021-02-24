@@ -1,9 +1,16 @@
 <template>
   <div class="container">
     <div class="header">
-      <div class="title">用户列表</div>
+      <div class="title">User List</div>
       <!-- 分组选择下拉框 -->
-      <el-select size="medium" filterable v-model="group_id" placeholder="请选择分组" @change="handleChange" clearable>
+      <el-select
+        size="medium"
+        filterable
+        v-model="group_id"
+        placeholder="Select Group"
+        @change="handleChange"
+        clearable
+      >
         <el-option v-for="(group, index) in groups" :key="index" :label="group.name" :value="group.id"> </el-option>
       </el-select>
     </div>
@@ -249,16 +256,22 @@ export default {
         element.groupNames = groups.join(',')
         list.push(element)
       })
+      console.log(list)
       return list
     },
   },
   async created() {
     await this.getAdminUsers()
     this.getAllGroups()
-    this.tableColumn = [{ prop: 'username', label: '名称' }, { prop: 'groupNames', label: '所属分组' }] // 设置表头信息
+    this.tableColumn = [
+      { prop: 'id', label: 'ID' },
+      { prop: 'username', label: 'Name' },
+      { prop: 'groupNames', label: 'Group' },
+      { prop: 'groupNames', label: 'Group' },
+    ] // 设置表头信息
     this.operate = [
-      { name: '编辑', func: 'handleEdit', type: 'primary' },
-      { name: '删除', func: 'handleDelete', type: 'danger' },
+      { name: 'Edit', func: 'handleEdit', type: 'primary' },
+      { name: 'Delete', func: 'handleDelete', type: 'danger' },
     ]
     this.eventBus.$on('addUser', this.addUser)
   },

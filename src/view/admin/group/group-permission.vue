@@ -188,7 +188,7 @@ export default {
       &::placeholder {
         font-size: 14px;
         font-weight: 400;
-        color: #c4c9d2;
+        color: #a4b79b;
         text-indent: 20px;
       }
     }

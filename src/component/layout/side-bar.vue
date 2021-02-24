@@ -25,8 +25,8 @@
         ref="meun"
         :default-active="defaultActive"
         :collapse="elMenuCollapse"
-        background-color="#192A5E"
-        text-color="rgba(196,201,210,1)"
+        background-color="#C9D1BA"
+        text-color="rgba(255,255,255,1)"
         active-text-color="#1890ff"
       >
         <template v-for="item in sideBarList">
@@ -231,7 +231,7 @@ export default {
 }
 
 .app-sidebar {
-  background: #192a5e;
+  background: #c9d1ba;
 
   &::-webkit-scrollbar {
     width: 0px;
@@ -253,7 +253,7 @@ export default {
     font-size: 30px;
     color: #fff;
     transition: all 0.5s ease-in-out;
-    background-color: #122150;
+    background-color: #a4b79b;
     transition: all 0.3s linear;
     position: sticky;
     top: 0;
@@ -272,7 +272,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #122150;
+    background-color: #a4b79b;
     transition: all 0.3s linear;
 
     img {

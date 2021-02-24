@@ -1,7 +1,7 @@
 const adminRouter = {
   route: null,
   name: null,
-  title: '权限管理',
+  title: 'Authorization',
   type: 'folder',
   icon: 'iconfont icon-huiyuanguanli',
   filePath: 'view/admin/',
@@ -12,14 +12,14 @@ const adminRouter = {
     {
       route: '/admin/user/list',
       name: null,
-      title: '用户管理',
+      title: 'Users',
       type: 'folder', // 取 route 为默认加载页
       icon: 'iconfont icon-huiyuanguanli',
       filePath: 'view/admin/user/',
       inNav: true,
       children: [
         {
-          title: '用户列表',
+          title: 'User List',
           type: 'view',
           name: 'userList',
           route: '/admin/user/list',
@@ -29,7 +29,7 @@ const adminRouter = {
           permission: ['超级管理员独有权限'],
         },
         {
-          title: '添加用户',
+          title: 'Add User',
           type: 'view',
           inNav: true,
           route: '/admin/user/add',
@@ -43,7 +43,7 @@ const adminRouter = {
     {
       route: '/admin/group/list',
       name: null,
-      title: '分组管理',
+      title: 'Groups',
       type: 'tab', // 取 route 为默认加载页
       icon: null,
       filePath: 'view/admin/group',

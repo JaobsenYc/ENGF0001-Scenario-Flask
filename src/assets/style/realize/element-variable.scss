@@ -5,9 +5,9 @@ $--color-text-regular: #596C8E !default;
 $--color-text-placeholder: #BAC7DE !default;
 
 /* 改变主题色变量 */
-$--color-primary: #3963bc;
+$--color-primary: #A4b79b;
 
-$--color-primary: #3963bc;
+$--color-primary: #A4b79b;
 $--color-success: #00c292 !default;
 $--color-warning: #ffcb71 !default;
 $--color-danger: #f4516c !default;
@@ -59,9 +59,9 @@ $--font-path: "~element-ui/lib/theme-chalk/fonts";
 
 .el-button--primary {
   &.is-plain {
-    color: #3963bc;
+    color: #A4b79b;
     background: #fff;
-    border: 1px solid #3963bc;
+    border: 1px solid #A4b79b;
   }
 
   &:hover,
@@ -320,7 +320,7 @@ thead tr {
 }
 
 .el-table__expand-icon {
-  color: #3963bc;
+  color: #A4b79b;
   font-size: 18px;
   top: -5px;
 }
@@ -370,7 +370,7 @@ thead tr {
 
     .el-menu-item.is-active {
       position: relative;
-
+      font-color: #ffffff;
       &:before {
         content: "";
         width: 6px;
@@ -471,7 +471,7 @@ thead tr {
 
 .el-submenu.is-active.is-opened {
   .el-submenu__title {
-    color: $submenu-title !important;
+    color: #ffffff !important;
     background: $menuItem-bg !important;
     height: 50px;
 
@@ -561,7 +561,7 @@ thead tr {
   .el-submenu.is-active {
     .el-submenu__title {
       height: $menuItem-height;
-      background-color: #1d2a60 !important;
+      background-color: #A4b79b !important;
 
       i {
         color: $theme;
@@ -642,7 +642,7 @@ thead tr {
   color: $--link-disabled-font-color;
 }
 
-$typeMap: (primary:#3963BC,
+$typeMap: (primary:#A4b79b,
   success:#00C292,
   danger: #E46A76,
   warning:#FFBE4D,
@@ -671,13 +671,13 @@ $typeMap: (primary:#3963BC,
 
  /* tag */
  @include b(tag) {
-  background-color: #3963BC;
+  background-color: #A4b79b;
   padding: 0 13px;
   height: 24px;;
   line-height: 22px;
   color:rgba(255,255,255,1);
   border-radius: 12px;
-  border: 1px solid #3963BC;
+  border: 1px solid #A4b79b;
   .el-icon-close {
     border-radius: 50%;
     font-size: 12px;
@@ -694,11 +694,11 @@ $typeMap: (primary:#3963BC,
 
     &:hover {
       background-color: rgba(255,255,255,1);
-      color: #3963BC;
+      color: #A4b79b;
     }
   }
   @include m(dark) {
-    background-color: #0a1949;
+    background-color: #97a675;
     color: rgba(255,255,255,1);
     .el-tag__close {
       color:rgba(255,255,255,1);
@@ -706,19 +706,19 @@ $typeMap: (primary:#3963BC,
 
     .el-tag__close:hover {
       color: #FFFFFF;
-      background-color: #0a1949;
+      background-color: #97a675;
     }
   }
 
   @include m(plain) {
     background-color: rgba(255,255,255,1);
-    color: #3963BC;
+    color: #A4b79b;
     .el-tag__close {
-      color:#3963BC;
+      color:#A4b79b;
     }
 
     .el-tag__close:hover {
-      background-color:#3963BC;
+      background-color:#A4b79b;
       color: rgba(255,255,255,1);
     }
   }
@@ -835,11 +835,11 @@ $typeMap: (primary:#3963BC,
     background-color: #ECF1FF;
     border-color: #97B8FF;
     .el-message__content {
-      color: #3963bc;
+      color: #A4b79b;
     }
   }
   & .el-icon-info {
-    color: #3963BC;
+    color: #A4b79b;
   }
 }
 
@@ -848,30 +848,30 @@ $typeMap: (primary:#3963BC,
   border: 1px solid #97B8FF;
   background-color: #ECF1FF;
   @include e(title) {
-    color: #3963BC;
+    color: #A4b79b;
   }
 
   @include e(content) {
-    color: #3963BC;
+    color: #A4b79b;
   }
   .el-icon-info {
-    color: #3963BC;
+    color: #A4b79b;
   }
 }
 
 /* select */
 @include b(select) {
   .el-tag {
-    // background-color: #3963bc !important;
+    // background-color: #A4b79b !important;
     &__close.el-icon-close {
-      background-color: #3963bc;
+      background-color: #A4b79b;
       right: -7px;
       top: 0;
       color: #fff;
 
       &:hover {
         background-color: #fff;
-        color: #3963bc;
+        color: #A4b79b;
       }
     }
   }
