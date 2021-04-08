@@ -45,10 +45,8 @@ export default {
     return {
       loading: false,
       form: {
-        title: '',
-        author: '',
-        summary: '',
-        image: '',
+        id: '',
+        expression: '',
       },
     }
   },

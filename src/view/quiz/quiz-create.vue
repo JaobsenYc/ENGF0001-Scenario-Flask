@@ -6,7 +6,7 @@
         <el-col :lg="16" :md="20" :sm="24" :xs="24">
           <el-form :model="form" status-icon ref="form" label-width="100px" @submit.native.prevent>
             <el-form-item label="Proposition" prop="proposition">
-              <el-input size="medium" v-model="form.title" placeholder="Please enter the proposition: "></el-input>
+              <el-input size="medium" v-model="form.expression" placeholder="Please enter the proposition: "></el-input>
               <!--            </el-form-item>-->
               <!--            <el-form-item label="作者" prop="author">-->
               <!--              <el-input size="medium" v-model="form.author" placeholder="请填写作者"></el-input>-->
@@ -43,10 +43,8 @@ export default {
   data() {
     return {
       form: {
-        title: '',
-        author: '',
-        summary: '',
-        image: '',
+        id: '',
+        expression: '',
       },
       loading: false,
     }

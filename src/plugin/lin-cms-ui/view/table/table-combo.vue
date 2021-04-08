@@ -136,7 +136,7 @@
           </el-table-column>
         </template>
         <!-- 操作列 -->
-        <el-table-column label="操作" fixed="right" width="170">
+        <el-table-column label="Operation" fixed="right" width="170">
           <template slot-scope="scope">
             <el-button
               v-for="(item, index) in operate"
@@ -210,8 +210,8 @@ export default {
     this.tableColumn = tableColumn
     // 操作栏
     this.operate = [
-      { name: '编辑', func: 'handleEdit', type: 'primary' },
-      { name: '删除', func: 'handleDelete', type: 'danger' },
+      { name: 'Edit', func: 'handleEdit', type: 'primary' },
+      { name: 'Delete', func: 'handleDelete', type: 'danger' },
     ]
     // 定制列
     this.tempCheckList = tableColumn.map(v => v.label).slice()

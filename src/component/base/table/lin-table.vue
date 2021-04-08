@@ -33,7 +33,7 @@
         :fixed="item.fixed ? item.fixed : false"
         :width="item.width ? item.width : ''"
       ></el-table-column>
-      <el-table-column v-if="operate.length > 0" label="操作" fixed="right" width="275">
+      <el-table-column v-if="operate.length > 0" label="Operation" fixed="right" width="275">
         <template slot-scope="scope">
           <el-button
             v-for="(item, index) in operate"
@@ -214,10 +214,7 @@ export default {
         this.oldKey = this.oldKey.filter(item => item !== row.key)
         const data = this.oldVal.filter(item => item.key !== row.key)
         this.handleSelectionChange(data)
-        this.toggleSelection(
-          this.currentData.filter(item => item.key === row.key),
-          false,
-        )
+        this.toggleSelection(this.currentData.filter(item => item.key === row.key), false)
       }
       // 选中-单选
       if (this.currentOldRow && this.currentOldRow.key === row.key) {

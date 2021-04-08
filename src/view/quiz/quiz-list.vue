@@ -2,7 +2,7 @@
   <div>
     <!-- 列表页面 -->
     <div class="container" v-if="!showEdit">
-      <div class="header"><div class="title">图书列表</div></div>
+      <div class="header"><div class="title">Quiz List</div></div>
       <!-- 表格 -->
       <lin-table
         :tableColumn="tableColumn"
@@ -32,7 +32,11 @@ export default {
   },
   data() {
     return {
-      tableColumn: [{ prop: 'title', label: '书名' }, { prop: 'author', label: '作者' }],
+      tableColumn: [
+        { prop: 'Expression', label: 'Expression' },
+        { prop: 'Average Grade', label: 'Average Grade' },
+        { prop: 'Submission', label: 'Submission' },
+      ],
       tableData: [],
       operate: [],
       showEdit: false,
@@ -43,9 +47,9 @@ export default {
     this.loading = true
     await this.getQuizs()
     this.operate = [
-      { name: '编辑', func: 'handleEdit', type: 'primary' },
+      { name: 'Edit', func: 'handleEdit', type: 'primary' },
       {
-        name: '删除',
+        name: 'Delete',
         func: 'handleDelete',
         type: 'danger',
         permission: '删除图书',

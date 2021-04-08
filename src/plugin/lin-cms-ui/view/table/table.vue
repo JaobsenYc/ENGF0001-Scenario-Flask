@@ -88,10 +88,10 @@
             <el-table-column prop="city" label="市区" width="120"></el-table-column>
             <el-table-column prop="address" label="地址" width="300"></el-table-column>
             <el-table-column prop="zip" label="邮编" width="120"></el-table-column>
-            <el-table-column label="操作" width="140" fixed="right">
+            <el-table-column label="Operation" width="140" fixed="right">
               <template slot-scope="scope">
-                <el-button @click="handleClick(scope.row)" type="primary" plain size="mini">编辑</el-button>
-                <el-button type="danger" size="mini" plain>删除</el-button>
+                <el-button @click="handleClick(scope.row)" type="primary" plain size="mini">Edit</el-button>
+                <el-button type="danger" size="mini" plain>Delete</el-button>
               </template>
             </el-table-column>
           </el-table>
@@ -220,14 +220,14 @@ export default {
             <el-table-column prop="city" label="市区" width="120"></el-table-column>
             <el-table-column prop="address" label="地址" width="300"></el-table-column>
             <el-table-column prop="zip" label="邮编" width="120"></el-table-column>
-            <el-table-column label="操作" width="150">
+            <el-table-column label="Operation" width="150">
               <template slot-scope="scope">
                 <el-button
                   @click="handleClick(scope.row)"
                   type="primary"
                   plain
-                  size="mini">编辑</el-button>
-                <el-button type="danger" size="mini" plain>删除</el-button>
+                  size="mini">Edit</el-button>
+                <el-button type="danger" size="mini" plain>Delete</el-button>
               </template>
 
             </el-table-column>
