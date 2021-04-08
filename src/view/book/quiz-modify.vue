@@ -1,10 +1,13 @@
 <template>
   <div class="container">
-    <div class="title">新建图书</div>
+    <div class="title">
+      <span>修改图书</span> <span class="back" @click="back"> <i class="iconfont icon-fanhui"></i> 返回 </span>
+    </div>
+    <el-divider></el-divider>
     <div class="wrap">
       <el-row>
         <el-col :lg="16" :md="20" :sm="24" :xs="24">
-          <el-form :model="form" status-icon ref="form" label-width="100px" @submit.native.prevent>
+          <el-form :model="form" status-icon ref="form" label-width="100px" v-loading="loading" @submit.native.prevent>
             <el-form-item label="书名" prop="title">
               <el-input size="medium" v-model="form.title" placeholder="请填写书名"></el-input>
             </el-form-item>
@@ -15,18 +18,11 @@
               <el-input size="medium" v-model="form.image" placeholder="请填写封面地址"></el-input>
             </el-form-item>
             <el-form-item label="简介" prop="summary">
-              <el-input
-                size="medium"
-                type="textarea"
-                :autosize="{ minRows: 4, maxRows: 8 }"
-                placeholder="请输入简介"
-                v-model="form.summary"
-              >
+              <el-input size="medium" type="textarea" :rows="4" placeholder="请输入简介" v-model="form.summary">
               </el-input>
             </el-form-item>
-
             <el-form-item class="submit">
-              <el-button type="primary" @click="submitForm('form')" :loading="loading">保 存</el-button>
+              <el-button type="primary" @click="submitForm('form')">保 存</el-button>
               <el-button @click="resetForm('form')">重 置</el-button>
             </el-form-item>
           </el-form>
@@ -37,45 +33,54 @@
 </template>
 
 <script>
-import book from '@/model/book'
+import quiz from '@/model/quiz'
 
 export default {
+  props: {
+    editQuizID: {
+      type: Number,
+    },
+  },
   data() {
     return {
+      loading: false,
       form: {
         title: '',
         author: '',
         summary: '',
         image: '',
       },
-      loading: false,
     }
   },
+  async mounted() {
+    this.loading = true
+    this.form = await quiz.getQuiz(this.editQuizID)
+    this.loading = false
+  },
   methods: {
-    async submitForm(formName) {
-      try {
-        this.loading = true
-        const res = await book.createBook(this.form)
-        this.loading = false
-        if (res.code < window.MAX_SUCCESS_CODE) {
-          this.$message.success(`${res.message}`)
-          this.resetForm(formName)
-        }
-      } catch (error) {
-        this.loading = false
-        this.$message.error('图书添加失败，请检测填写信息')
-        console.log(error)
+    async submitForm() {
+      const res = await quiz.editQuiz(this.editQuizID, this.form)
+      if (res.code < window.MAX_SUCCESS_CODE) {
+        this.$message.success(`${res.message}`)
+        this.$emit('editClose')
       }
     },
     // 重置表单
     resetForm(formName) {
       this.$refs[formName].resetFields()
     },
+    back() {
+      this.$emit('editClose')
+    },
   },
 }
 </script>
 
 <style lang="scss" scoped>
+.el-divider--horizontal {
+  margin: 0;
+}
+
 .container {
   .title {
     height: 59px;
@@ -84,7 +89,12 @@ export default {
     font-size: 16px;
     font-weight: 500;
     text-indent: 40px;
-    border-bottom: 1px solid #dae1ec;
+
+    .back {
+      float: right;
+      margin-right: 40px;
+      cursor: pointer;
+    }
   }
 
   .wrap {

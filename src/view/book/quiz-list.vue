@@ -16,19 +16,19 @@
     </div>
 
     <!-- 编辑页面 -->
-    <book-modify v-else @editClose="editClose" :editBookID="editBookID"></book-modify>
+    <quiz-modify v-else @editClose="editClose" :editQuizID="editQuizID"></quiz-modify>
   </div>
 </template>
 
 <script>
-import book from '@/model/book'
+import quiz from '@/model/quiz'
 import LinTable from '@/component/base/table/lin-table'
-import BookModify from './book-modify'
+import QuizModify from './quiz-modify'
 
 export default {
   components: {
     LinTable,
-    BookModify,
+    QuizModify,
   },
   data() {
     return {
@@ -36,12 +36,12 @@ export default {
       tableData: [],
       operate: [],
       showEdit: false,
-      editBookID: 1,
+      editQuizID: 1,
     }
   },
   async created() {
     this.loading = true
-    await this.getBooks()
+    await this.getQuizs()
     this.operate = [
       { name: '编辑', func: 'handleEdit', type: 'primary' },
       {
@@ -54,10 +54,10 @@ export default {
     this.loading = false
   },
   methods: {
-    async getBooks() {
+    async getQuizs() {
       try {
-        const books = await book.getBooks()
-        this.tableData = books
+        const quizs = await quiz.getQuizs()
+        this.tableData = quizs
       } catch (error) {
         if (error.code === 10020) {
           this.tableData = []
@@ -67,7 +67,7 @@ export default {
     handleEdit(val) {
       console.log('val', val)
       this.showEdit = true
-      this.editBookID = val.row.id
+      this.editQuizID = val.row.id
     },
     handleDelete(val) {
       this.$confirm('此操作将永久删除该图书, 是否继续?', '提示', {
@@ -75,9 +75,9 @@ export default {
         cancelButtonText: '取消',
         type: 'warning',
       }).then(async () => {
-        const res = await book.deleteBook(val.row.id)
+        const res = await quiz.deleteQuiz(val.row.id)
         if (res.code < window.MAX_SUCCESS_CODE) {
-          this.getBooks()
+          this.getQuizs()
           this.$message({
             type: 'success',
             message: `${res.message}`,
@@ -88,7 +88,7 @@ export default {
     rowClick() {},
     editClose() {
       this.showEdit = false
-      this.getBooks()
+      this.getQuizs()
     },
   },
 }
